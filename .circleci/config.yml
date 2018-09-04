@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/clojure:lein-node
+    steps:
+      - checkout
+      - run: npm install lumo-cljs
+      - run: lein deps
+      - run: lein test
+    working_directory: ~/aero
